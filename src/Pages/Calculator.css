@@ -24,7 +24,7 @@
 }
 .input-calc{
     /* height:100px; */
-    width:70%;
+    width:100%;
     /* background-color: red; */
 }
 .input-form{
@@ -149,4 +149,14 @@
 border:2px solid #81ecec;
 box-shadow: 5px 5px 8px #7f8fa6;
 color:#fd79a8;
+}
+
+.box-input{
+    /* background-color: blue; */
+    width:100%;
+    
+}
+.icon-correct{
+    font-size:30px;
+    color:#00cec9;
 }

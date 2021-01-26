@@ -10,6 +10,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import { Scrollbars } from 'react-custom-scrollbars';
+import {AiOutlineCheckCircle,AiOutlineCloseCircle} from 'react-icons/ai'
 
 
 export default function Calculator(){
@@ -165,20 +166,38 @@ export default function Calculator(){
                             <div className="box-calc-kiri">
                                 <div className="input-calc">
                                     <p>Input Your Number:</p>
-                                    <div>
+                                    <div className="box-input">
                                         <input type="number" className="input-form"   placeholder="Your Number" onChange={(e)=>funcSatu(e.target.value,1)}></input>
+                                        {
+                                            isInputSatu ?
+                                            <AiOutlineCheckCircle className="icon-correct"/>
+                                            :
+                                            null
+                                        }
                                     </div>
                                 </div>
                                 <div className="input-calc">
                                     <p>Input Your Number:</p>
                                     <div>
                                         <input type="number" className="input-form" placeholder="Your Number" onChange={(e)=>funcSatu(e.target.value,2)}></input>
+                                        {
+                                            isInputDua ?
+                                            <AiOutlineCheckCircle className="icon-correct"/>
+                                            :
+                                            null
+                                        }
                                     </div>
                                 </div>
                                 <div className="input-calc">
                                     <p>Input Your Number:</p>
                                     <div>
                                         <input  type="number"className="input-form"  placeholder="Your Number" onChange={(e)=>funcSatu(e.target.value,3)}></input>
+                                        {
+                                            isInputTiga ?
+                                            <AiOutlineCheckCircle className="icon-correct"/>
+                                            :
+                                            null
+                                        }
                                     </div>
                                 </div>
                                 <div className="box-perhitungan">
