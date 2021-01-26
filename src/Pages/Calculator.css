@@ -163,3 +163,86 @@ color:#fd79a8;
     font-size:30px;
     color:#00cec9;
 }
+.total-per{
+    font-size:45px;
+}
+
+
+@media screen and (max-width:960px){
+    .box-calc-kiri{
+        margin-bottom:10px;
+    }
+}
+
+@media screen and (max-width:320px){
+    .input-form{
+        width:150px;
+    }
+    .box-input-kanan{
+        width:100%;
+
+    }
+    .box-input-kiri{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .total-per{
+        
+        font-size:25px;
+    }
+    
+}
+@media screen and (max-width:375px){
+    .input-form{
+        width:150px;
+    }
+    .box-input-kanan{
+        width:100%;
+
+    }
+    .box-input-kiri{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .total-per{
+        
+        font-size:25px;
+    }
+    
+}
+@media screen and (max-width:280px){
+    .input-form{
+        width:110px !important;
+    }
+    .box-input-kanan{
+        width:100%;
+
+    }
+    .box-input-kiri{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .total-per{
+        
+        font-size:25px;
+    }
+    
+}
+@media screen and (max-width:768px){
+    .input-form{
+        width:150px;
+    }
+    .box-input-kanan{
+        width:100%;
+
+    }
+    .box-input-kiri{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .total-per{
+        
+        font-size:25px;
+    }
+    
+}

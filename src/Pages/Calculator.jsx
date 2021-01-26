@@ -227,7 +227,7 @@ export default function Calculator(){
                             <div className="box-calc-kanan">
                                 <div className="box-input-kiri">
                                     <p style={{fontSize:'25px'}}>RESULT</p>
-                                    <p style={{fontSize:'45px'}}>{totalPerhitungan}</p>
+                                    <p className="total-per">{totalPerhitungan}</p>
                                     <div onClick={onReset} className="oper-hitungan">  
                                         <p style={{fontWeight:'700', marginTop:10}}>RESET</p>
                                     </div>
