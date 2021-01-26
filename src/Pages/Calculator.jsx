@@ -11,9 +11,11 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import { Scrollbars } from 'react-custom-scrollbars';
 import {AiOutlineCheckCircle,AiOutlineCloseCircle} from 'react-icons/ai'
+import Swal from 'sweetalert2'
 
 
 export default function Calculator(){
+    const Swal = require('sweetalert2')
     
     const[inputSatu,setInputSatu]=useState(0)
     const[inputDua,setInputDua]=useState(0)
@@ -83,7 +85,13 @@ export default function Calculator(){
             }else if (isInputDua && isInputTiga){
                 total +=inputDua + inputTiga
             }else {
-                alert('Tidak Boleh Hanya Mengisi 1 Input')
+                // alert('Tidak Boleh Hanya Mengisi 1 Input')
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Tidak Boleh Mengisi Hanya 1 Input Data',
+                    icon: 'error',
+                    confirmButtonText: 'Cool'
+                  })
             }
             
         }else if (operasi === 'kurang'){      

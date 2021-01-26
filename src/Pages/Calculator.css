@@ -43,6 +43,8 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    margin-top:30px;
+    justify-content: center;
 }
 
 .oper-hitungan{
@@ -108,6 +110,7 @@
     flex:45%;
     background-color: #f1f2f6;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding:10px;
@@ -115,7 +118,7 @@
     box-shadow: 5px 5px 8px #7f8fa6;
 }
 .box-input-kanan{
-    width:70%;
+    width:100%;
     height:200px;
     /* background-color: blue; */
     border: 2px solid #fd79a8;
@@ -132,7 +135,7 @@
     box-shadow: 5px 5px 8px #7f8fa6;
 }
 .box-input-kiri{
-    width:30%;
+    width:100%;
     height:200px;
     border:2px solid #fd79a8;
     margin:5px;
