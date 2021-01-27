@@ -16,14 +16,17 @@ import Swal from 'sweetalert2'
 
 export default function Calculator(){
     const Swal = require('sweetalert2')
+    const [dataInput,setDataInput]=useState(
+        [{inputSatu:0,isInputSatu:false}, {inputSatu:0,isInputSatu:false},{inputSatu:0,isInputSatu:false}])
     
-    const[inputSatu,setInputSatu]=useState(0)
-    const[inputDua,setInputDua]=useState(0)
-    const[inputTiga,setInputTiga]=useState(0)
+  
+    // const[inputSatu,setInputSatu]=useState(0)
+    // const[inputDua,setInputDua]=useState(0)
+    // const[inputTiga,setInputTiga]=useState(0)
 
-    const[isInputSatu,setIsInputSatu]=useState(false)
-    const[isInputDua,setIsInputDua]=useState(false)
-    const[isInputTiga,setIsInputTiga]=useState(false)
+    // const[isInputSatu,setIsInputSatu]=useState(false)
+    // const[isInputDua,setIsInputDua]=useState(false)
+    // const[isInputTiga,setIsInputTiga]=useState(false)
     
     const[totalPerhitungan,setTotalPerhitungan]=useState(0)
     const[memories,setMemories]=(useState([]))
@@ -37,109 +40,179 @@ export default function Calculator(){
             // console.log(angka.length === 0, ' ini data angka.length')
             if(angka.length === 0){
                 // console.log('masuk ke if angka.length')
-                setInputSatu(0)
-                setIsInputSatu(false)
+                let newArr= [...dataInput]
+                newArr[0] = {inputSatu:0,isInputSatu:false}
+                setDataInput(newArr)
+                // setDataInput({...setDataInput[0],inputSatu:0,isInputSatu:false})
+                // setInputSatu(0)
+                // setIsInputSatu(false)
                 
             }else {
-                setInputSatu(angkaParse)
-                setIsInputSatu(true)
+                let newArr= [...dataInput]
+                newArr[0] = {inputSatu:angkaParse,isInputSatu:true}
+                setDataInput(newArr)
+                // setDataInput({...setDataInput[0],inputSatu:angkaParse,isInputSatu:true})
+                // setDataInput[0].inputSatu(angkaParse)
+                // setDataInput[0].inputSatu(true)
+                // setInputSatu(angkaParse)
+                // setIsInputSatu(true)
 
             }
         }else if(dataIsi===2){
             if(angka.length === 0 ){
-                setInputDua(0)
-                setIsInputDua(false)
+                let newArr= [...dataInput]
+                newArr[1] = {inputSatu:0,isInputSatu:false}
+                setDataInput(newArr)
+                // setDataInput({...setDataInput[1],inputDua:0,isInputDua:false})
+
+                // setInputDua(0)
+                // setIsInputDua(false)
             }else {
-                setInputDua(angkaParse)
-                setIsInputDua(true)
+                let newArr= [...dataInput]
+                newArr[1] = {inputSatu:angkaParse,isInputSatu:true}
+                setDataInput(newArr)
+                // setDataInput({...setDataInput[1],inputDua:angkaParse,isInputDua:true})
+                // setInputDua(angkaParse)
+                // setIsInputDua(true)
 
             }
         }else if (dataIsi===3){
             if(angka.length === 0){
-                setInputTiga(0)
-                setIsInputTiga(false)
+                let newArr= [...dataInput]
+                newArr[2] = {inputSatu:0,isInputSatu:false}
+                setDataInput(newArr)
+                // setDataInput([{...setDataInput[2],inputTiga:0,isInputTiga:false}])
+                // setInputTiga(0)
+                // setIsInputTiga(false)
             }else {
-                setInputTiga(angkaParse)
-                setIsInputTiga(true)
+                let newArr= [...dataInput]
+                newArr[2] = {inputSatu:angkaParse,isInputSatu:true}
+                setDataInput(newArr)
+                // setDataInput([{...setDataInput[2],inputTiga:angkaParse,isInputDua:true}])
+                // setInputTiga(angkaParse)
+                // setIsInputTiga(true)
             }
-        }
-
-        
-        
+        }   
     }
 
 
-
-    const onTotal=(operasi)=>{
-        let total = 0
-        
+    const onTotal2=(operasi)=>{
         let dataPerhitungan=[]
-        if(operasi === 'tambah'){
-            
-            if(isInputSatu && isInputDua && isInputTiga){
-                total += inputSatu + inputDua + inputTiga
-            }else if(isInputSatu && isInputDua){
-                total += inputSatu + inputDua
-            }else if (isInputSatu && isInputTiga){
-                total += inputSatu + inputTiga
-            }else if (isInputDua && isInputTiga){
-                total +=inputDua + inputTiga
-            }else {
-                // alert('Tidak Boleh Hanya Mengisi 1 Input')
-                Swal.fire({
-                    title: 'Error!',
-                    text: 'Tidak Boleh Mengisi Hanya 1 Input Data',
-                    icon: 'error',
-                    confirmButtonText: 'Cool'
-                  })
+        let dataHitung=[]
+        // console.log(dataInput)
+        var filterTrue = dataInput.filter(function(val){
+            if(val.isInputSatu){
+                dataHitung.push(val.inputSatu)
             }
-            
-        }else if (operasi === 'kurang'){      
-            if(isInputSatu && isInputDua && isInputTiga){
-                total += inputSatu - inputDua - inputTiga
-            }else if(isInputSatu && isInputDua){
-                total += inputSatu - inputDua
-            }else if (isInputSatu && isInputTiga){
-                total += inputSatu - inputTiga
-            }else if (isInputDua && isInputTiga){
-                total +=inputDua - inputTiga
-            }else {
-                alert('Tidak Boleh Hanya Mengisi 1 Input')
-            }        
-        }else if (operasi === 'bagi'){           
-            if(isInputSatu && isInputDua && isInputTiga){
-                total += inputSatu / inputDua / inputTiga
-            }else if(isInputSatu && isInputDua){
-                total += inputSatu /inputDua
-            }else if (isInputSatu && isInputTiga){
-                total += inputSatu / inputTiga
-            }else if (isInputDua && isInputTiga){
-                total +=inputDua / inputTiga
-            }else {
-                alert('Tidak Boleh Hanya Mengisi 1 Input')
-            }          
-        }else if(operasi === 'kali'){
-            
-            if(isInputSatu && isInputDua && isInputTiga){
-                total += inputSatu * inputDua * inputTiga
-            }else if(isInputSatu && isInputDua){
-                total += inputSatu * inputDua
-            }else if (isInputSatu && isInputTiga){
-                total += inputSatu * inputTiga
-            }else if (isInputDua && isInputTiga){
-                total +=inputDua * inputTiga
-            }else {
-                alert('Tidak Boleh Hanya Mengisi 1 Input')
-            }       
+            return val.isInputSatu === true
+        })
+        if(filterTrue.length === 1){
+            Swal.fire({
+                        title: 'Error!',
+                        text: 'Tidak Boleh Mengisi Hanya 1 Input Data',
+                        icon: 'error',
+                        confirmButtonText: 'Cool'
+                        })
+        }else if(operasi === 'tambah'){
+            var hitung = dataHitung.reduce((total,amount)=>total+amount)
+            let pembulatan=Math.ceil(hitung)
+            setTotalPerhitungan(pembulatan)
+            dataPerhitungan.push(pembulatan)
+            memories.push(pembulatan)
+        }else if (operasi === 'kurang'){
+            var hitung = dataHitung.reduce((total,amount)=>total-amount)
+            let pembulatan=Math.ceil(hitung)
+            setTotalPerhitungan(pembulatan)
+            dataPerhitungan.push(pembulatan)
+            memories.push(pembulatan)
+        }else if ( operasi === 'kali'){
+            console.log('masuk ke kali')
+            var hitung = dataHitung.reduce((total,amount)=>total*amount)
+            let pembulatan=Math.ceil(hitung)
+            setTotalPerhitungan(pembulatan)
+            dataPerhitungan.push(pembulatan)
+            memories.push(pembulatan)
+        }else if ( operasi === 'bagi'){
+            var hitung = dataHitung.reduce((total,amount)=>total/amount)
+            let pembulatan=Math.ceil(hitung)
+            setTotalPerhitungan(pembulatan)
+            dataPerhitungan.push(pembulatan)
+            memories.push(pembulatan)
         }
-        let pembulatan=Math.ceil(total)
-        setTotalPerhitungan(pembulatan)
-        dataPerhitungan.push(pembulatan)
-        memories.push(pembulatan)
+        
     }
+
+
+    // const onTotal=(operasi)=>{
+    //     let total = 0
+        
+    //     let dataPerhitungan=[]
+    //     if(operasi === 'tambah'){
+            
+    //         if(isInputSatu && isInputDua && isInputTiga){
+    //             total += inputSatu + inputDua + inputTiga
+    //         }else if(isInputSatu && isInputDua){
+    //             total += inputSatu + inputDua
+    //         }else if (isInputSatu && isInputTiga){
+    //             total += inputSatu + inputTiga
+    //         }else if (isInputDua && isInputTiga){
+    //             total +=inputDua + inputTiga
+    //         }else {
+    //             // alert('Tidak Boleh Hanya Mengisi 1 Input')
+    //             Swal.fire({
+    //                 title: 'Error!',
+    //                 text: 'Tidak Boleh Mengisi Hanya 1 Input Data',
+    //                 icon: 'error',
+    //                 confirmButtonText: 'Cool'
+    //               })
+    //         }
+            
+    //     }else if (operasi === 'kurang'){      
+    //         if(isInputSatu && isInputDua && isInputTiga){
+    //             total += inputSatu - inputDua - inputTiga
+    //         }else if(isInputSatu && isInputDua){
+    //             total += inputSatu - inputDua
+    //         }else if (isInputSatu && isInputTiga){
+    //             total += inputSatu - inputTiga
+    //         }else if (isInputDua && isInputTiga){
+    //             total +=inputDua - inputTiga
+    //         }else {
+    //             alert('Tidak Boleh Hanya Mengisi 1 Input')
+    //         }        
+    //     }else if (operasi === 'bagi'){           
+    //         if(isInputSatu && isInputDua && isInputTiga){
+    //             total += inputSatu / inputDua / inputTiga
+    //         }else if(isInputSatu && isInputDua){
+    //             total += inputSatu /inputDua
+    //         }else if (isInputSatu && isInputTiga){
+    //             total += inputSatu / inputTiga
+    //         }else if (isInputDua && isInputTiga){
+    //             total +=inputDua / inputTiga
+    //         }else {
+    //             alert('Tidak Boleh Hanya Mengisi 1 Input')
+    //         }          
+    //     }else if(operasi === 'kali'){
+            
+    //         if(isInputSatu && isInputDua && isInputTiga){
+    //             total += inputSatu * inputDua * inputTiga
+    //         }else if(isInputSatu && isInputDua){
+    //             total += inputSatu * inputDua
+    //         }else if (isInputSatu && isInputTiga){
+    //             total += inputSatu * inputTiga
+    //         }else if (isInputDua && isInputTiga){
+    //             total +=inputDua * inputTiga
+    //         }else {
+    //             alert('Tidak Boleh Hanya Mengisi 1 Input')
+    //         }       
+    //     }
+    //     let pembulatan=Math.ceil(total)
+    //     setTotalPerhitungan(pembulatan)
+    //     dataPerhitungan.push(pembulatan)
+    //     memories.push(pembulatan)
+    // }
 
     const renderDataPerhitungan=()=>{
-        console.log(memories)
+        // console.log(memories)
         return memories.map((val,index)=>{
             console.log(val,' INI VAL')
             return (
@@ -154,9 +227,6 @@ export default function Calculator(){
     }
     const onReset=()=>{
         setMemories([])
-        setInputSatu(0)
-        setInputDua(0)
-        setInputTiga(0)
         setTotalPerhitungan(0)
     }
     
@@ -176,49 +246,49 @@ export default function Calculator(){
                                     <p>Input Your Number:</p>
                                     <div className="box-input">
                                         <input type="number" className="input-form"   placeholder="Your Number" onChange={(e)=>funcSatu(e.target.value,1)}></input>
-                                        {
+                                        {/* {
                                             isInputSatu ?
                                             <AiOutlineCheckCircle className="icon-correct"/>
                                             :
                                             null
-                                        }
+                                        } */}
                                     </div>
                                 </div>
                                 <div className="input-calc">
                                     <p>Input Your Number:</p>
                                     <div>
                                         <input type="number" className="input-form" placeholder="Your Number" onChange={(e)=>funcSatu(e.target.value,2)}></input>
-                                        {
+                                        {/* {
                                             isInputDua ?
                                             <AiOutlineCheckCircle className="icon-correct"/>
                                             :
                                             null
-                                        }
+                                        } */}
                                     </div>
                                 </div>
                                 <div className="input-calc">
                                     <p>Input Your Number:</p>
                                     <div>
                                         <input  type="number"className="input-form"  placeholder="Your Number" onChange={(e)=>funcSatu(e.target.value,3)}></input>
-                                        {
+                                        {/* {
                                             isInputTiga ?
                                             <AiOutlineCheckCircle className="icon-correct"/>
                                             :
                                             null
-                                        }
+                                        } */}
                                     </div>
                                 </div>
                                 <div className="box-perhitungan">
-                                    <div onClick={()=>onTotal('tambah')} className="oper-hitungan">
+                                    <div onClick={()=>onTotal2('tambah')} className="oper-hitungan">
                                         <AiOutlinePlus/>
                                     </div>
-                                    <div onClick={()=>onTotal('kurang')} className="oper-hitungan">
+                                    <div onClick={()=>onTotal2('kurang')} className="oper-hitungan">
                                         <AiOutlineMinus/>
                                     </div>
-                                    <div onClick={()=>onTotal('kali')} className="oper-hitungan">
+                                    <div onClick={()=>onTotal2('kali')} className="oper-hitungan">
                                         <TiTimes/>
                                     </div>
-                                    <div onClick={()=>onTotal('bagi')} className="oper-hitungan">  
+                                    <div onClick={()=>onTotal2('bagi')} className="oper-hitungan">  
                                         <RiDivideFill/>
                                     </div>
                                    
