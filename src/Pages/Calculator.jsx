@@ -92,8 +92,15 @@ export default function Calculator(){
     }
 
 
-    const onTotal2=(operasi)=>{
+    const perhitungan=(hitung)=>{
         let dataPerhitungan=[]
+        let pembulatan=Math.ceil(hitung)
+            setTotalPerhitungan(pembulatan)
+            dataPerhitungan.push(pembulatan)
+            memories.push(pembulatan)
+    }
+    const onTotal2=(operasi)=>{
+        
         let dataHitung=[]
         // console.log(dataInput)
         var filterTrue = dataInput.filter(function(val){
@@ -111,29 +118,17 @@ export default function Calculator(){
                         })
         }else if(operasi === 'tambah'){
             var hitung = dataHitung.reduce((total,amount)=>total+amount)
-            let pembulatan=Math.ceil(hitung)
-            setTotalPerhitungan(pembulatan)
-            dataPerhitungan.push(pembulatan)
-            memories.push(pembulatan)
+            perhitungan(hitung)
         }else if (operasi === 'kurang'){
             var hitung = dataHitung.reduce((total,amount)=>total-amount)
-            let pembulatan=Math.ceil(hitung)
-            setTotalPerhitungan(pembulatan)
-            dataPerhitungan.push(pembulatan)
-            memories.push(pembulatan)
+            perhitungan(hitung)
         }else if ( operasi === 'kali'){
             console.log('masuk ke kali')
             var hitung = dataHitung.reduce((total,amount)=>total*amount)
-            let pembulatan=Math.ceil(hitung)
-            setTotalPerhitungan(pembulatan)
-            dataPerhitungan.push(pembulatan)
-            memories.push(pembulatan)
+            perhitungan(hitung)
         }else if ( operasi === 'bagi'){
             var hitung = dataHitung.reduce((total,amount)=>total/amount)
-            let pembulatan=Math.ceil(hitung)
-            setTotalPerhitungan(pembulatan)
-            dataPerhitungan.push(pembulatan)
-            memories.push(pembulatan)
+            perhitungan(hitung)
         }
         
     }
