@@ -20,13 +20,9 @@ export default function Calculator(){
         [{inputSatu:0,isInputSatu:false}, {inputSatu:0,isInputSatu:false},{inputSatu:0,isInputSatu:false}])
     
   
-    // const[inputSatu,setInputSatu]=useState(0)
-    // const[inputDua,setInputDua]=useState(0)
-    // const[inputTiga,setInputTiga]=useState(0)
-
-    // const[isInputSatu,setIsInputSatu]=useState(false)
-    // const[isInputDua,setIsInputDua]=useState(false)
-    // const[isInputTiga,setIsInputTiga]=useState(false)
+        useEffect(()=>{
+            console.log(dataInput[0].isInputSatu)
+        })
     
     const[totalPerhitungan,setTotalPerhitungan]=useState(0)
     const[memories,setMemories]=(useState([]))
@@ -246,36 +242,36 @@ export default function Calculator(){
                                     <p>Input Your Number:</p>
                                     <div className="box-input">
                                         <input type="number" className="input-form"   placeholder="Your Number" onChange={(e)=>funcSatu(e.target.value,1)}></input>
-                                        {/* {
-                                            isInputSatu ?
+                                        {
+                                            dataInput[0].isInputSatu ?
                                             <AiOutlineCheckCircle className="icon-correct"/>
                                             :
                                             null
-                                        } */}
+                                        }
                                     </div>
                                 </div>
                                 <div className="input-calc">
                                     <p>Input Your Number:</p>
                                     <div>
                                         <input type="number" className="input-form" placeholder="Your Number" onChange={(e)=>funcSatu(e.target.value,2)}></input>
-                                        {/* {
-                                            isInputDua ?
+                                        {
+                                            dataInput[1].isInputSatu ?
                                             <AiOutlineCheckCircle className="icon-correct"/>
                                             :
                                             null
-                                        } */}
+                                        }
                                     </div>
                                 </div>
                                 <div className="input-calc">
                                     <p>Input Your Number:</p>
                                     <div>
                                         <input  type="number"className="input-form"  placeholder="Your Number" onChange={(e)=>funcSatu(e.target.value,3)}></input>
-                                        {/* {
-                                            isInputTiga ?
+                                        {
+                                            dataInput[2].isInputSatu ?
                                             <AiOutlineCheckCircle className="icon-correct"/>
                                             :
                                             null
-                                        } */}
+                                        }
                                     </div>
                                 </div>
                                 <div className="box-perhitungan">
