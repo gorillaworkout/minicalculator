@@ -28,9 +28,6 @@ export default function Calculator(){
     const[memories,setMemories]=(useState([]))
 
     const funcSatu=(angka,dataIsi)=>{
-        // console.log(angka)
-        // console.log(dataIsi)
-        // console.log(angka)
         let angkaParse = parseInt(angka)
         if(dataIsi===1){
             // console.log(angka.length === 0, ' ini data angka.length')
@@ -39,54 +36,30 @@ export default function Calculator(){
                 let newArr= [...dataInput]
                 newArr[0] = {inputSatu:0,isInputSatu:false}
                 setDataInput(newArr)
-                // setDataInput({...setDataInput[0],inputSatu:0,isInputSatu:false})
-                // setInputSatu(0)
-                // setIsInputSatu(false)
-                
             }else {
                 let newArr= [...dataInput]
                 newArr[0] = {inputSatu:angkaParse,isInputSatu:true}
                 setDataInput(newArr)
-                // setDataInput({...setDataInput[0],inputSatu:angkaParse,isInputSatu:true})
-                // setDataInput[0].inputSatu(angkaParse)
-                // setDataInput[0].inputSatu(true)
-                // setInputSatu(angkaParse)
-                // setIsInputSatu(true)
-
             }
         }else if(dataIsi===2){
             if(angka.length === 0 ){
                 let newArr= [...dataInput]
                 newArr[1] = {inputSatu:0,isInputSatu:false}
                 setDataInput(newArr)
-                // setDataInput({...setDataInput[1],inputDua:0,isInputDua:false})
-
-                // setInputDua(0)
-                // setIsInputDua(false)
             }else {
                 let newArr= [...dataInput]
                 newArr[1] = {inputSatu:angkaParse,isInputSatu:true}
                 setDataInput(newArr)
-                // setDataInput({...setDataInput[1],inputDua:angkaParse,isInputDua:true})
-                // setInputDua(angkaParse)
-                // setIsInputDua(true)
-
             }
         }else if (dataIsi===3){
             if(angka.length === 0){
                 let newArr= [...dataInput]
                 newArr[2] = {inputSatu:0,isInputSatu:false}
                 setDataInput(newArr)
-                // setDataInput([{...setDataInput[2],inputTiga:0,isInputTiga:false}])
-                // setInputTiga(0)
-                // setIsInputTiga(false)
             }else {
                 let newArr= [...dataInput]
                 newArr[2] = {inputSatu:angkaParse,isInputSatu:true}
                 setDataInput(newArr)
-                // setDataInput([{...setDataInput[2],inputTiga:angkaParse,isInputDua:true}])
-                // setInputTiga(angkaParse)
-                // setIsInputTiga(true)
             }
         }   
     }
